@@ -6,48 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Confirmacion de Asistencia promoción 2023</title>
-    <style>
-        .texto {
-            font-size: 21px;
-            font-weight: 800;
-            color: #323edf;
-            font-family: sans-serif;
-            text-transform: uppercase;
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5em;
+            color: #000000;
+            background: #000000;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
+        }
+
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .texto {
+
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #fffdfd;
+            text-transform: uppercase;
+            line-height: 1.5em;
+            letter-spacing: 3px;
+            width: 100%;
         }
 
         video {
             position: fixed;
-            top: 50%;
-            left: 50%;
             min-width: 100%;
             min-height: 100%;
             width: auto;
             height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -1;
+            z-index: -2;
         }
 
         .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             z-index: 1;
             color: #000000;
             text-align: center;
         }
 
         .card {
-            width: 450px;
+            width: 100%;
             margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px 40px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
         }
 
         .card-header {
@@ -56,7 +81,7 @@
         }
 
         .card-body {
-            padding-bottom: 10px;
+            padding: 20px;
         }
 
         .card-footer {
@@ -70,19 +95,30 @@
         }
 
         .boton {
-            background-color: #131da7;
-            border-radius: 100px;
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
             color: white;
-            padding: 10px 32px;
-            margin: 10px 0;
+            padding: 12px 24px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+
         }
 
         .content-hidden {
             display: none;
+        }
+
+        .titulo {
+            font-size: 2em;
+        }
+
+        .cont {
+            display: flex;
+            justify-content: center;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -96,53 +132,52 @@
 
 <body ontouchstart="mostrarAlert()" onclick="mostrarAlert()">
 
-    <video autoplay muted loop>
-        <source src="{{ asset('utils/fondo.mp4') }}" type="video/mp4">
-        Tu navegador no soporta la etiqueta de video.
-    </video>
+    <div class="wrapper">
+        <div class="bg"></div>
+        <video autoplay muted loop class="video">
+            <source src="{{ asset('utils/fondo.mp4') }}" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
 
-    <div class="content">
-        <div class="card">
-            <div class="card-header texto titulo">INVITACIóN</div>
-            <div class="card-body">
+        <div class="content">
+            <div class="card">
+                <div class="card-header texto titulo">INVITACIóN</div>
+                <div class="card-body">
+                    <p class="texto" id="mensaje">
+                        La promoción "Milagrinos dejando huellas 2023" de la IEP "señor de los milagros", tenemos el
+                        agrado
+                        de invitar a
+                        usted a la fiesta de promoción a realizarse el dia Viernes 15 de diciembre a las 7.pm en el
+                        local
+                        Costa Brava de esta ciudad
+                    </p>
+                    <p class="texto">Te esperamos</p>
+                    <p class="texto">Por favor confirme su asistencia</p>
 
-                <p class="texto" id="mensaje">
-                    La promoción "Milagrinos dejando huellas 2023" de la IEP "señor de los milagros", tenemos el agrado
-                    de invitar a
-                    usted a la fiesta de promoción a realizarse el dia Viernes 15 de diciembre a las 7.pm en el local
-                    Costa Brava de esta ciudad
-                </p>
-                <p class="texto">Te esperamos</p>
-                <p class="texto">Por favor confirme su asistencia</p>
+                    <div class="cont">
+                        <label class="texto">
+                            <input type="radio" name="confirmacion" value="si" class="confirm-radio" se>
+                            Sí, asistiré
+                        </label>
 
-                <div class="cont">
-                    <label class="texto">
-                        <input type="radio" name="confirmacion" value="si" class="confirm-radio" se>
-                        Sí, asistiré
-                    </label>
-
-                    <label class="texto">
-                        <input type="radio" name="confirmacion" value="no" class="confirm-radio">
-                        No, asistiré
-                    </label>
+                        <label class="texto">
+                            <input type="radio" name="confirmacion" value="no" class="confirm-radio">
+                            No, asistiré
+                        </label>
 
 
+                    </div>
+
+                    <div class="cont">
+                        <button type="button" class="boton">Enviar</button>
+
+                    </div>
                 </div>
-
-                <div class="cont">
-                    <button type="button" class="boton">Enviar</button>
-
-                </div>
-
-
-
-
-            </div>
-            <div class="card-footer">
-                <p class="texto texto2">Atte: Comite de aula 2023</p>
-
-                <div class="content-hidden">
-                    <audio src="{{ asset('utils/example.mp3') }}" id="audio"></audio>
+                <div class="card-footer">
+                    <p class="texto texto2">Atte: Comite de aula 2023</p>
+                    <div class="content-hidden">
+                        <audio src="{{ asset('utils/example.mp3') }}" id="audio"></audio>
+                    </div>
                 </div>
             </div>
         </div>
